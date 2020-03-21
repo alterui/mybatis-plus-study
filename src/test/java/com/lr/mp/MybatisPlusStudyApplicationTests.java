@@ -116,23 +116,15 @@ class MybatisPlusStudyApplicationTests {
     @Test
     public void testSelectByPage() {
 
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.ge("age", 20);
 
-        IPage<User> page = new Page<>(6, 2);//参数一是当前页，参数二是每页个数
-        page = userMapper.selectPage(page, new QueryWrapper<>());
-
-        System.out.println("============================");
-
-        page.getRecords().forEach(System.out::println);
-        System.out.println(page.getSize());
-        System.out.println(page.getTotal());
-        System.out.println(page.getCurrent());
-
+        Page<User> page = new Page<>(1, 2);//参数一是当前页，参数二是每页个数
+        IPage<User> userIPage = userMapper.selectPage(page, queryWrapper);
+        List<User> list = userIPage.getRecords();
+        list.forEach(System.out::println);
 
     }
-
-
-
-
 
 
     @Test

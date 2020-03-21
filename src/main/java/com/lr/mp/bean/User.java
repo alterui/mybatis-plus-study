@@ -11,9 +11,7 @@ import lombok.Data;
  * @date 2020/3/21 10:00
  */
 @Data
-@TableName("user")
 public class User {
-    @TableId(type = IdType.AUTO)
     private Long id;
     private String name;
     private int age;
