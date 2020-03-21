@@ -117,8 +117,10 @@ class MybatisPlusStudyApplicationTests {
     public void testSelectByPage() {
 
 
-        IPage<User> page = new Page<>(1, 2);//参数一是当前页，参数二是每页个数
+        IPage<User> page = new Page<>(6, 2);//参数一是当前页，参数二是每页个数
         page = userMapper.selectPage(page, new QueryWrapper<>());
+
+        System.out.println("============================");
 
         page.getRecords().forEach(System.out::println);
         System.out.println(page.getSize());
