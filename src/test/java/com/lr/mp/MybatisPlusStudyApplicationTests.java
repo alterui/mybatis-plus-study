@@ -116,11 +116,10 @@ class MybatisPlusStudyApplicationTests {
     @Test
     public void testSelectByPage() {
 
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.ge("age", 20);
+
 
         Page<User> page = new Page<>(1, 2);//参数一是当前页，参数二是每页个数
-        IPage<User> userIPage = userMapper.selectPage(page, queryWrapper);
+        IPage<User> userIPage = userMapper.selectPage(page, null);
         List<User> list = userIPage.getRecords();
         list.forEach(System.out::println);
 
