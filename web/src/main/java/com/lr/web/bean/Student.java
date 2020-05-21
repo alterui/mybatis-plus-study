@@ -12,7 +12,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Student {
-    private Integer age;
+    private String age;
+    private String tel;
+
+    public Student(String age) {
+        this.age = age;
+    }
 
 
 }
